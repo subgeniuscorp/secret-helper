@@ -1,0 +1,17 @@
+{
+  "name": "@subgeniuscorp/secret-helper",
+  "version": "1.0.0",
+  "description": "Shared helper package to create API keys, secrets etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "api",
+    "key",
+    "hash",
+    "secret"
+  ],
+  "author": "Nikhil Vijayan <nkhilv@gmail.com>",
+  "license": "MIT"
+}
