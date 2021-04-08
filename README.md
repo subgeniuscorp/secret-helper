@@ -1,5 +1,7 @@
 # Secret helper
 
+![Drag Racing](./img/secret_helper.png)
+
 Helper module that helps to:
 
 - Create API keys
