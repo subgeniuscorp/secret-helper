@@ -19,4 +19,24 @@ function createHash({ str, saltLength }: Config): string {
   return salt + hash;
 }
 
-module.exports = createHash;
+interface ValidateHashParams {
+  hashValue: string;
+  valueToCompare: string;
+  saltLength?: number;
+}
+
+function validateHash({
+  hashValue,
+  valueToCompare,
+  saltLength 
+}: ValidateHashParams): boolean {
+  const length = saltLength || DEFAULT_SALT_LENGTH;
+  var salt = hashValue.substr(0, length);
+  var validHash = salt + md5(valueToCompare + salt);
+  return hashValue === validHash;
+}
+
+module.exports = {
+  createHash,
+  validateHash,
+};
