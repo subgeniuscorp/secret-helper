@@ -1,6 +1,8 @@
-# Secret helper
+<p align="center">
+  <img src="./img/secret_helper.png">
+</p>
 
-![Drag Racing](./img/secret_helper.png)
+# Secret helper
 
 Helper module that helps to:
 
