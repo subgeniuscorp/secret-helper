@@ -1,5 +1,12 @@
 # Secret helper
 
+Helper module that helps to:
+
+- Create API keys
+- Create salts
+- Create hashes
+- Validates hashes
+
 ## Installation
 
 ```bash
