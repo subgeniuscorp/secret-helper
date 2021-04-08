@@ -1,6 +1,6 @@
 const { DEFAULT_SALT_LENGTH } = require('./config');
 
-export default function generateSalt(len: Number): String {
+function generateSalt(len: Number): String {
   const length = len || DEFAULT_SALT_LENGTH;
   if (!length) {
     throw new Error('no length!');
@@ -14,3 +14,5 @@ export default function generateSalt(len: Number): String {
   }
   return salt;
 }
+
+module.exports = generateSalt
