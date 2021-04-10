@@ -22,7 +22,7 @@ function main({
     createHash: (str: string): string => createHash({ str, saltLength }),
     generateApiKey: (): string => generateApiKey({ length: apiKeyLength }),
     validateHash: ({ hashValue, valueToCompare}: ValidateHashClosure): boolean =>
-      validateHash({ hashValue, valueToCompare, saltLength }),
+      validateHash({ hashValue, valueToCompare }),
   }
 }
 

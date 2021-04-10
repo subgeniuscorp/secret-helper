@@ -56,15 +56,19 @@ const salt = sh.generateSalt();
 
 ### Create a hash
 
+Note: `createHash` returns a promise.
+
 ```javascript
-const hash = sh.createHash("some string");
+const hash = await sh.createHash("some string");
 //=> maTsufd8d07db203eb64bf039de1d38d84aae
 ```
 
 ### Validate a hash
 
+Note: `validateHash` returns a promise.
+
 ```javascript
-const isValid = sh.validateHash({
+const isValid = await sh.validateHash({
   hashValue: "jQHg1ed6d0b28cb5be10171f15204b9626990",
   valueToCompare: "some string",
 });

@@ -1,40 +1,31 @@
 export {};
-const crypto = require('crypto');
-const generateSalt = require('./generate-salt');
+const bcrypt = require('bcrypt');
 const { DEFAULT_SALT_LENGTH } = require('./config');
 
-function md5(string: String): String {
-  return crypto.createHash('md5').update(string).digest('hex');
-}
-
-interface Config {
+interface CreateHashParams {
   str: string;
   saltLength?: number;
 };
 
-function createHash({ str, saltLength }: Config): string {
-  const length = saltLength || DEFAULT_SALT_LENGTH;
-  const salt = generateSalt(length);
-  const hash = md5(str + salt);
-  return salt + hash;
-}
+async function createHash({
+  str,
+  saltLength,
+}: CreateHashParams): Promise<string> {
+  const saltRounds = saltLength || DEFAULT_SALT_LENGTH;
+  return await bcrypt.hash(str, saltRounds);
+};
 
 interface ValidateHashParams {
   hashValue: string;
   valueToCompare: string;
-  saltLength?: number;
-}
+};
 
-function validateHash({
+async function validateHash({
   hashValue,
   valueToCompare,
-  saltLength 
-}: ValidateHashParams): boolean {
-  const length = saltLength || DEFAULT_SALT_LENGTH;
-  var salt = hashValue.substr(0, length);
-  var validHash = salt + md5(valueToCompare + salt);
-  return hashValue === validHash;
-}
+}: ValidateHashParams): Promise<boolean> {
+  return await bcrypt.compare(valueToCompare, hashValue)
+};
 
 module.exports = {
   createHash,
