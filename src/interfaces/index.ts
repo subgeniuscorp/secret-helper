@@ -8,5 +8,5 @@ export interface IGenerateSalt {
 
 export interface ICreateHash {
   valueToHash: string;
-  saltRounds: number;
+  saltRounds?: number;
 }

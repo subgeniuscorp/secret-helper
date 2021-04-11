@@ -10,7 +10,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "prepare": "npm run build"
+    "prepare": "npm run test && npm run build"
   },
   "keywords": [
     "api",

@@ -16,7 +16,7 @@ interface ValidateHashClosure {
 
 const main = {
   generateSalt: ({ length = 0 }: IGenerateSalt = {}): string => generateSalt(length),
-  createHash: ({ valueToHash, saltRounds }: ICreateHash): string => createHash({ valueToHash, saltRounds }),
+  createHash: ({ valueToHash, saltRounds = 0 }: ICreateHash): string => createHash({ valueToHash, saltRounds }),
   generateApiKey: ({ length = '' }: IGenerateApiKey = {}): string => generateApiKey({ length }),
   validateHash: ({ hashValue, valueToCompare}: ValidateHashClosure): boolean =>
     validateHash({ hashValue, valueToCompare }),
