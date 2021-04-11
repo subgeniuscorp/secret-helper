@@ -1,6 +1,6 @@
 const { DEFAULT_SALT_LENGTH } = require('./config');
 
-function generateSalt(len: Number): String {
+function generateSalt(len?: Number): String {
   const length = len || DEFAULT_SALT_LENGTH;
   if (!length) {
     throw new Error('no length!');
@@ -8,7 +8,7 @@ function generateSalt(len: Number): String {
   const set = '0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ'
   const setLen = set.length
   let salt = ''
-  for (var i = 0; i < len; i++) {
+  for (var i = 0; i < length; i++) {
     var p = Math.floor(Math.random() * setLen);
     salt += set[p];
   }

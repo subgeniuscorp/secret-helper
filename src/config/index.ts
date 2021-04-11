@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   DEFAULT_API_KEY_LENGTH: 30,
   DEFAULT_SALT_LENGTH: 30,
 }

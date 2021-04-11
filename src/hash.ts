@@ -3,16 +3,16 @@ const bcrypt = require('bcrypt');
 const { DEFAULT_SALT_LENGTH } = require('./config');
 
 interface CreateHashParams {
-  str: string;
-  saltLength?: number;
+  valueToHash: string;
+  saltRounds?: number;
 };
 
 async function createHash({
-  str,
-  saltLength,
+  valueToHash,
+  saltRounds,
 }: CreateHashParams): Promise<string> {
-  const saltRounds = saltLength || DEFAULT_SALT_LENGTH;
-  return await bcrypt.hash(str, saltRounds);
+  const rounds = saltRounds || DEFAULT_SALT_LENGTH;
+  return await bcrypt.hash(valueToHash, rounds);
 };
 
 interface ValidateHashParams {

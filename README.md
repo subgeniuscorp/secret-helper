@@ -22,14 +22,7 @@ npm i @subgeniuscorp/secret-helper
 ### Setup
 
 ```javascript
-const secretHelper = require("secret-helper");
-
-const config = {
-  saltLength: 5, // defaults to 30
-  apiKeyLength: 20, // defaults to 30
-};
-
-const sh = secretHelper(config);
+const sh = require("secret-helper");
 ```
 
 ### Create new API key
