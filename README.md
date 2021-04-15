@@ -46,12 +46,12 @@ const apiKey = sh.generateApiKey({ length: 20 });
 The salt length is defined in the setup. It defaults to `30`.
 
 ```javascript
-const salt = sh.generateSalt();
+const salt = await sh.generateSalt();
 // => wEa1g
 
-const salt = sh.generateSalt({ length: 30 });
+const salt = await sh.generateSalt({ saltRounds: 10 });
 
-// NOTE: Salt length defaults to 30 if not provided.
+// NOTE: Salt length defaults to 10 if not provided.
 ```
 
 ### Create a hash
@@ -60,16 +60,15 @@ Note: `createHash` returns a promise.
 
 ```javascript
 const hash = await sh.createHash({
-  valueToHash: 'some string',
-  saltRounds: 10,
+  valueToHash: "some string",
+  saltLength: 10,
 });
 //=> maTsufd8d07db203eb64bf039de1d38d84aae
 
 const hash = await sh.createHash({
-  valueToHash: 'some string',
+  valueToHash: "some string",
 });
-// Note: saltRounds defaults to 30 if not provided.
-
+// Note: saltLength defaults to 10 if not provided.
 ```
 
 ### Validate a hash

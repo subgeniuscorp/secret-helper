@@ -1,18 +1,13 @@
-const { DEFAULT_SALT_LENGTH } = require('./config');
+const bcrypt = require('bcryptjs');
+const { DEFAULT_SALT_ROUNDS } = require('./config');
 
-function generateSalt(len?: Number): String {
-  const length = len || DEFAULT_SALT_LENGTH;
-  if (!length) {
-    throw new Error('no length!');
-  }
-  const set = '0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ'
-  const setLen = set.length
-  let salt = ''
-  for (var i = 0; i < length; i++) {
-    var p = Math.floor(Math.random() * setLen);
-    salt += set[p];
-  }
-  return salt;
+interface IGenerateSalt {
+  saltRounds: number;
+}
+
+function generateSalt({ saltRounds = 0 }: IGenerateSalt): String {
+  const rounds = saltRounds || DEFAULT_SALT_ROUNDS;
+  return bcrypt.genSalt(rounds);
 }
 
 module.exports = generateSalt

@@ -1,6 +1,7 @@
 const sh = require('../src/index');
 
 describe('Secret Helper', () => {
+
   it('can create an API key WITH a length specified', () => {
     const LENGTH = 20;
     const apiKey = sh.generateApiKey({ length: LENGTH });
@@ -24,7 +25,7 @@ describe('Secret Helper', () => {
     done();
   });
 
-  it('can create a hash for a secret without salt round', async done => {
+  it('can create a hash for a secret without salt length', async done => {
     const password = '!P@$$w0rD';
     const hash = await sh.createHash({
       valueToHash: password,
@@ -46,23 +47,10 @@ describe('Secret Helper', () => {
     done();
   });
 
-  it('can generate a random salt of the right length', () => {
-    const LENGTH = 10;
-    const salt = sh.generateSalt({ length: LENGTH });
-    expect(salt.length).toBe(LENGTH);
+  it('can generate a salt', async done => {
+    const salt = await sh.generateSalt();
+    expect(typeof salt).toBe('string');
+    done();
   });
-
-  it('can generate a random salt when length is not specified', () => {
-    const salt = sh.generateSalt();
-    expect(salt.length).toBe(30);
-  });
-
-  it('can create salt containing letters and numbers only', () => {
-    const LENGTH = 30;
-    const salt = sh.generateSalt({ length: LENGTH });
-
-    const regexp = /^[0-9a-zA-Z]+$/;
-    const result = salt.match(regexp);
-    expect(!!result).toBe(true);
-  });
+  
 });
