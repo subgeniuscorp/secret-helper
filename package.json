@@ -7,6 +7,10 @@
   "files": [
     "lib/**/*"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subgeniuscorp/secret-helper.git"
+  },
   "scripts": {
     "test": "jest",
     "build": "tsc",
