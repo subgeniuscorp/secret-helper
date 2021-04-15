@@ -5,7 +5,9 @@ interface IGenerateSalt {
   saltRounds: number;
 }
 
-function generateSalt({ saltRounds = 0 }: IGenerateSalt): String {
+function generateSalt({
+  saltRounds = 0,
+}: IGenerateSalt): Promise<string> {
   const rounds = saltRounds || DEFAULT_SALT_ROUNDS;
   return bcrypt.genSalt(rounds);
 }
