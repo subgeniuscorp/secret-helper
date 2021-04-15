@@ -1,10 +1,11 @@
 export {};
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
+const generateSalt = require('./generate-salt');
 const { DEFAULT_SALT_ROUNDS } = require('./config');
 
 interface CreateHashParams {
   valueToHash: string;
-  saltRounds?: number;
+  saltRounds: number;
 };
 
 async function createHash({
@@ -12,7 +13,8 @@ async function createHash({
   saltRounds,
 }: CreateHashParams): Promise<string> {
   const rounds = saltRounds || DEFAULT_SALT_ROUNDS;
-  return await bcrypt.hash(valueToHash, rounds);
+  const salt = await generateSalt({ saltRounds: rounds });
+  return await bcrypt.hash(valueToHash, salt);
 };
 
 interface ValidateHashParams {

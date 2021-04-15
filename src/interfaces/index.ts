@@ -3,10 +3,15 @@ export interface IGenerateApiKey {
 }
 
 export interface IGenerateSalt {
-  length?: number;
+  saltRounds?: number;
 }
 
 export interface ICreateHash {
   valueToHash: string;
   saltRounds?: number;
+}
+
+export interface ValidateHashClosure {
+  hashValue: string;
+  valueToCompare: string;
 }
