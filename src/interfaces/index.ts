@@ -15,3 +15,7 @@ export interface ValidateHashClosure {
   hashValue: string;
   valueToCompare: string;
 }
+
+export interface IGenerateRandomString {
+  length: number;
+}

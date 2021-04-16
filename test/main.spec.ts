@@ -52,5 +52,21 @@ describe('Secret Helper', () => {
     expect(typeof salt).toBe('string');
     done();
   });
+
+  describe('#generateRandomString', () => {
+    it('Creates a string of the right length', () => {
+      const LENGTH = 5;
+      const result = sh.generateRandomString({ length: LENGTH });
+      expect(result.length).toBe(5);
+    });
+
+    it('Contains letters and numbers only', () => {
+      const LENGTH = 5;
+      const regexp = /^[0-9a-zA-Z]+$/;
+      const result = sh.generateRandomString({ length: LENGTH });
+      const isValidLettersAndNumbersOnly = result.match(regexp);
+      expect(!!isValidLettersAndNumbersOnly).toBe(true);
+    });
+  })
   
 });

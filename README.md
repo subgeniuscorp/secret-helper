@@ -82,3 +82,10 @@ const isValid = await sh.validateHash({
 });
 // => true
 ```
+
+### Generate a random string
+
+```javascript
+const randomStr = sh.generateRandomString({ length: 5 });
+// => 4Hf3d
+```
