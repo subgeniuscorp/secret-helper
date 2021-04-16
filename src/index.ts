@@ -2,11 +2,13 @@ export {};
 const generateSalt = require('./generate-salt');
 const { createHash, validateHash } = require('./hash');
 const generateApiKey = require('./generate-api-key');
+const generateRandomString = require('./generate-random-chars');
 import { 
   IGenerateApiKey,
   IGenerateSalt,
   ICreateHash,
-  ValidateHashClosure 
+  ValidateHashClosure,
+  IGenerateRandomString,
 } from './interfaces';
 
 
@@ -16,6 +18,7 @@ const main = {
   generateApiKey: ({ length = '' }: IGenerateApiKey = {}): string => generateApiKey({ length }),
   validateHash: ({ hashValue, valueToCompare}: ValidateHashClosure): boolean =>
     validateHash({ hashValue, valueToCompare }),
+  generateRandomString: ({ length }: IGenerateRandomString) => generateRandomString({ length }),
 }
 
 module.exports = main;
