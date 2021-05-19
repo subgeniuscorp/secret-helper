@@ -9,7 +9,7 @@ import {
   ICreateHash,
   ValidateHashClosure,
   IGenerateRandomString,
-} from './interfaces';
+} from './types';
 
 
 const main = {
