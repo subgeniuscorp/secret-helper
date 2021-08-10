@@ -1,5 +1,5 @@
 export interface IGenerateApiKey {
-  length?: string;
+  length?: number;
 }
 
 export interface IGenerateSalt {

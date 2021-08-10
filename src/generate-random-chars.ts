@@ -2,7 +2,7 @@ interface IGenerateRandomString {
   length: number;
 }
 
-function generateRandomString({ length }: IGenerateRandomString): string {
+export default function generateRandomString({ length }: IGenerateRandomString): string {
   const ERR_MESSAGE = 'Error: No length specified in generateRandomString function';
   if (!length) throw new Error(ERR_MESSAGE);
   const set = '0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ';
@@ -14,5 +14,3 @@ function generateRandomString({ length }: IGenerateRandomString): string {
   }
   return salt;
 }
-
-module.exports = generateRandomString;

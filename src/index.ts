@@ -1,9 +1,9 @@
-export {};
-const generateSalt = require('./generate-salt');
-const { createHash, validateHash } = require('./hash');
-const generateApiKey = require('./generate-api-key');
-const generateRandomString = require('./generate-random-chars');
-import { 
+export { };
+import generateSalt from './generate-salt';
+import { createHash, validateHash } from './hash';
+import generateApiKey from './generate-api-key';
+import generateRandomString from './generate-random-chars';
+import {
   IGenerateApiKey,
   IGenerateSalt,
   ICreateHash,
@@ -12,13 +12,11 @@ import {
 } from './types';
 
 
-const main = {
-  generateSalt: ({ saltRounds = 0 }: IGenerateSalt = {}): string => generateSalt({ saltRounds }),
-  createHash: ({ valueToHash, saltRounds = 0 }: ICreateHash): string => createHash({ valueToHash, saltRounds }),
-  generateApiKey: ({ length = '' }: IGenerateApiKey = {}): string => generateApiKey({ length }),
-  validateHash: ({ hashValue, valueToCompare}: ValidateHashClosure): boolean =>
+export default {
+  generateSalt: ({ saltRounds = 0 }: IGenerateSalt = {}): Promise<string> => generateSalt({ saltRounds }),
+  createHash: ({ valueToHash, saltRounds = 0 }: ICreateHash): Promise<string> => createHash({ valueToHash, saltRounds }),
+  generateApiKey,
+  validateHash: ({ hashValue, valueToCompare }: ValidateHashClosure): Promise<boolean> =>
     validateHash({ hashValue, valueToCompare }),
   generateRandomString: ({ length }: IGenerateRandomString) => generateRandomString({ length }),
 }
-
-module.exports = main;

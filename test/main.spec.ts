@@ -1,4 +1,4 @@
-const sh = require('../src/index');
+import sh from '../src/index';
 
 describe('Secret Helper', () => {
 
@@ -68,5 +68,5 @@ describe('Secret Helper', () => {
       expect(!!isValidLettersAndNumbersOnly).toBe(true);
     });
   })
-  
+
 });
