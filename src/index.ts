@@ -14,7 +14,7 @@ import {
 
 export default {
   generateSalt,
-  createHash: ({ valueToHash, saltRounds = 0 }: ICreateHash): Promise<string> => createHash({ valueToHash, saltRounds }),
+  createHash,
   generateApiKey,
   validateHash: ({ hashValue, valueToCompare }: ValidateHashClosure): Promise<boolean> =>
     validateHash({ hashValue, valueToCompare }),

@@ -5,7 +5,7 @@ const { DEFAULT_SALT_ROUNDS } = require('./config');
 
 interface CreateHashParams {
   valueToHash: string;
-  saltRounds: number;
+  saltRounds?: number;
 };
 
 export async function createHash({
