@@ -1,16 +1,19 @@
+import constants from './config/index';
+
+const { DEFAULT_RANDOM_STRING_LENGTH } = constants;
+
 interface IGenerateRandomString {
-  length: number;
+  length?: number;
 }
 
-export default function generateRandomString({ length }: IGenerateRandomString): string {
-  const ERR_MESSAGE = 'Error: No length specified in generateRandomString function';
-  if (!length) throw new Error(ERR_MESSAGE);
+export default function generateRandomString({ length }: IGenerateRandomString = {}): string {
+  const len = length || DEFAULT_RANDOM_STRING_LENGTH
   const set = '0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ';
   const setLen = set.length;
-  let salt = '';
-  for (let i = 0; i < length; i++) {
+  let result = '';
+  for (let i = 0; i < len; i++) {
     const p = Math.floor(Math.random() * setLen);
-    salt += set[p];
+    result += set[p];
   }
-  return salt;
+  return result;
 }

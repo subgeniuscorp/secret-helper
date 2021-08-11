@@ -1,6 +1,7 @@
-export { };
-const crypto = require('crypto');
-const { DEFAULT_API_KEY_LENGTH } = require('./config');
+import crypto from 'crypto';
+import constants from './config/index';
+
+const { DEFAULT_API_KEY_LENGTH } = constants;
 
 interface Config {
   length?: number;

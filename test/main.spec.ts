@@ -67,6 +67,9 @@ describe('Secret Helper', () => {
       const isValidLettersAndNumbersOnly = result.match(regexp);
       expect(!!isValidLettersAndNumbersOnly).toBe(true);
     });
-  })
 
+    it('Creates a string of length 10 when no length is supplied', () => {
+      expect(sh.generateRandomString().length).toBe(10)
+    })
+  })
 });

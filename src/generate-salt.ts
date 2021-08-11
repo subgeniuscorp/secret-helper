@@ -1,5 +1,7 @@
-const bcrypt = require('bcryptjs');
-const { DEFAULT_SALT_ROUNDS } = require('./config');
+import bcrypt from 'bcryptjs';
+import constants from './config/index';
+
+const { DEFAULT_SALT_ROUNDS } = constants;
 
 interface IGenerateSalt {
   saltRounds?: number;

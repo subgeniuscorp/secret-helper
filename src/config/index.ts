@@ -1,4 +1,5 @@
-module.exports = {
+export default {
   DEFAULT_API_KEY_LENGTH: 30,
   DEFAULT_SALT_ROUNDS: 10,
+  DEFAULT_RANDOM_STRING_LENGTH: 10,
 }

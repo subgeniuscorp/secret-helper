@@ -1,7 +1,8 @@
-export { };
-const bcrypt = require('bcryptjs');
+import bcrypt from 'bcryptjs';
 import generateSalt from './generate-salt';
-const { DEFAULT_SALT_ROUNDS } = require('./config');
+import constants from './config/index';
+
+const { DEFAULT_SALT_ROUNDS } = constants;
 
 interface CreateHashParams {
   valueToHash: string;
@@ -28,4 +29,3 @@ export async function validateHash({
 }: ValidateHashParams): Promise<boolean> {
   return await bcrypt.compare(valueToCompare, hashValue)
 };
-

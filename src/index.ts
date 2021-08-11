@@ -1,4 +1,3 @@
-export { };
 import generateSalt from './generate-salt';
 import { createHash, validateHash } from './hash';
 import generateApiKey from './generate-api-key';
