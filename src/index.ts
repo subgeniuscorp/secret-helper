@@ -13,7 +13,7 @@ import {
 
 
 export default {
-  generateSalt: ({ saltRounds = 0 }: IGenerateSalt = {}): Promise<string> => generateSalt({ saltRounds }),
+  generateSalt,
   createHash: ({ valueToHash, saltRounds = 0 }: ICreateHash): Promise<string> => createHash({ valueToHash, saltRounds }),
   generateApiKey,
   validateHash: ({ hashValue, valueToCompare }: ValidateHashClosure): Promise<boolean> =>
