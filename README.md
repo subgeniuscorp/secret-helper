@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./img/secret_helper.png">
+  <img src="./img/secret_helper.png" width="150px">
 </p>
 
 # Secret helper
@@ -10,6 +10,7 @@ Helper module that helps to:
 - Create salts
 - Create hashes
 - Validates hashes
+- Create random strings
 
 ## Installation
 
@@ -22,7 +23,7 @@ npm i @subgeniuscorp/secret-helper
 ### Setup
 
 ```javascript
-const sh = require("@subgeniuscorp/secret-helper");
+const sh = require("@subgeniuscorp/secret-helper").default;
 ```
 
 ### Create new API key
@@ -88,4 +89,10 @@ const isValid = await sh.validateHash({
 ```javascript
 const randomStr = sh.generateRandomString({ length: 5 });
 // => 4Hf3d
+```
+
+length defaults to 10 if not provided.
+```javascript
+const randomStr = sh.generateRandomString();
+// => dB8roaA2lK
 ```
