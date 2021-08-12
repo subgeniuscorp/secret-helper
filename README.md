@@ -1,16 +1,14 @@
-<p align="center">
-  <img src="./img/secret_helper.png" width="150px">
-</p>
+<img src="./img/secret_helper.png" width="150px">
 
 # Secret helper
 
-Helper module that helps to:
+Helper module that:
 
-- Create API keys
-- Create salts
-- Create hashes
+- Creates API keys
+- Creates salts
+- Creates hashes
 - Validates hashes
-- Create random strings
+- Creates random strings
 
 ## Installation
 
@@ -96,3 +94,11 @@ length defaults to 10 if not provided.
 const randomStr = sh.generateRandomString();
 // => dB8roaA2lK
 ```
+
+## Test
+
+To run tests:
+```bash
+npm run test
+```
+
