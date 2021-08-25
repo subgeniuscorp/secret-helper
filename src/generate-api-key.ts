@@ -5,7 +5,7 @@ const { DEFAULT_API_KEY_LENGTH } = constants;
 
 interface Config {
   length?: number;
-};
+}
 
 export default function generateApiKey({ length }: Config = {}): string {
   const apiKeyLength = length || DEFAULT_API_KEY_LENGTH;

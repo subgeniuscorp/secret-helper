@@ -7,7 +7,7 @@ interface IGenerateRandomString {
 }
 
 export default function generateRandomString({ length }: IGenerateRandomString = {}): string {
-  const len = length || DEFAULT_RANDOM_STRING_LENGTH
+  const len = length || DEFAULT_RANDOM_STRING_LENGTH;
   const set = '0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ';
   const setLen = set.length;
   let result = '';

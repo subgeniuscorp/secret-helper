@@ -7,7 +7,7 @@ const { DEFAULT_SALT_ROUNDS } = constants;
 interface CreateHashParams {
   valueToHash: string;
   saltRounds?: number;
-};
+}
 
 export async function createHash({
   valueToHash,
@@ -15,17 +15,17 @@ export async function createHash({
 }: CreateHashParams): Promise<string> {
   const rounds = saltRounds || DEFAULT_SALT_ROUNDS;
   const salt = await generateSalt({ saltRounds: rounds });
-  return await bcrypt.hash(valueToHash, salt);
-};
+  return bcrypt.hash(valueToHash, salt);
+}
 
 interface ValidateHashParams {
   hashValue: string;
   valueToCompare: string;
-};
+}
 
 export async function validateHash({
   hashValue,
   valueToCompare,
 }: ValidateHashParams): Promise<boolean> {
-  return await bcrypt.compare(valueToCompare, hashValue)
-};
+  return bcrypt.compare(valueToCompare, hashValue);
+}
