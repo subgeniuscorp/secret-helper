@@ -21,7 +21,7 @@ npm i @subgeniuscorp/secret-helper
 ### Setup
 
 ```javascript
-const sh = require("@subgeniuscorp/secret-helper").default;
+const sh = require("@subgeniuscorp/secret-helper")
 ```
 
 ### Create new API key
